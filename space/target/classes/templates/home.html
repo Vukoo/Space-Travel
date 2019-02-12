@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title th:utext="${title}"></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" > 
+      <!-- See configuration in WebMvConfig.java -->
+      <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+                rel="stylesheet" media="screen"/>
+      <!--Custom styles-->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   
+   <body>
+      <!-- Include _sidebar.html -->
+       <th:div th:include="/_sidebar" class="d-flex" id="wrapper"> 
+
+</th:div>
+     <script th:src="@{/jquery/jquery.min.js}"></script>  
+      <script th:src="@{/popper/popper.min.js}"></script>  
+      <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>   
+   </body>
+       
+   </body>
+</html>

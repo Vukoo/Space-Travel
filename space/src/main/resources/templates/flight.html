@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+       <meta charset="UTF-8"/>
+    <title>Flight Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" >
+      <!-- See configuration in WebMvConfig.java -->
+     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+      <!--Custom styles-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class="d-flex" id="wrapper">
+	<th:div th:include="/_sidebar"  class="bg-light border-right" id="sidebar-wrapper"> 
+          </th:div>
+      
+    <div class="container-fluid" id="page-content-wrapper"> 
+      <h2>Flight Management Page</h2>
+       <div th:if="${message}" class="alert alert-success" role="alert">
+  	<p th:text="${message}"> success message</p>
+  </div>
+  <div th:if="${error}" class="alert alert-danger" role="alert">
+  	<p th:text="${error}"> Error message</p>
+  </div>
+      
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Flight ID</th>
+      <th scope="col">Arrival Time</th>
+      <th scope="col">Departure Time</th>
+      <th scope="col"> Price</th>
+      <th scope="col"> Seats </th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr th:each="flight : ${allFlight}"  >
+            <td th:utext="${flight.id}">..</td>
+           	<td th:utext="${flight.arrivalTime}">..</td>
+           	<td th:utext="${flight.departureTime}">..</td>
+            <td th:utext="${flight.price}">..</td>
+            <td th:utext="${flight.seatsNumber}">..</td>
+            <td>
+           		<a type="button" class="btn btn-danger"  th:href="@{/flight-management/delete/} + ${flight.id}" >Delete</a>
+            	<a type="button" class="btn btn-primary" th:href="@{/flight-management/flight/} + ${flight.id}">Show Details</a>
+             </td>
+        </tr>
+  </tbody>
+</table>
+
+ 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Add New flight </button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Add new flight</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-dark" >
+      
+      <form th:action="@{/flight-management/flight}"  role="form" th:object="${flight}" method="POST">
+	   <div class="form-group">
+	   <label >Arrival Time </label>	
+		  <input type="datetime-local" class="form-control" th:field="*{arrivalTime}" 
+		  th:classappend="${#fields.hasErrors('arrivalTime')}? 'is-invalid'">
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('arrivalTime')}" th:errors="*{arrivalTime}">Arrival Time Error</div>
+	   </div>
+	   <div class="form-group">
+	    <label >Departure Time </label>	
+	  	   <input type="datetime-local" class="form-control" th:field="*{departureTime}" 
+		  th:classappend="${#fields.hasErrors('departureTime')}? 'is-invalid'">
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('departureTime')}" th:errors="*{departureTime}">departureTime Error</div>
+	   </div>
+	   <div class="form-group">
+	     <label >Price </label>	
+		  <input type="text" class="form-control"  th:field="*{price}"  placeholder="Price"
+		  th:classappend="${#fields.hasErrors('price')}? 'is-invalid'">
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Departure Error</div>
+	   </div>
+	     <div class="form-group">
+	     	     <label >Available seats </label>	
+		  <input type="text" class="form-control" th:field="*{seatsNumber}" placeholder="Seats"
+		  th:classappend="${#fields.hasErrors('price')}? 'is-invalid'">
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('seatsNumber')}" th:errors="*{seatsNumber}">Departure Error</div>
+	   </div>
+	   <input  type="submit" class="btn btn-dark" value="Submit" ></input>
+	</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+   </div>
+    </div>
+       
+       <script th:src="@{/jquery/jquery.min.js}"></script>  
+      <script th:src="@{/popper/popper.min.js}"></script>  
+      <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>   
+   </body>
+    
+</html>
