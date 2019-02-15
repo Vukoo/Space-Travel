@@ -67,26 +67,28 @@
 	   <div class="form-group">
 	   <label >Arrival Time </label>	
 		  <input type="datetime-local" class="form-control" th:field="*{arrivalTime}" 
-		  th:classappend="${#fields.hasErrors('arrivalTime')}? 'is-invalid'">
-		   <div class="invalid-feedback" th:if="${#fields.hasErrors('arrivalTime')}" th:errors="*{arrivalTime}">Arrival Time Error</div>
+		  th:classappend="${#fields.hasErrors('arrivalTime')}? 'is-invalid'" required>
+		   <div class="invalid-feedback">
+          Please enter arrival Time 'yyyy-mm-ddThh:mm'.
+        </div>
 	   </div>
 	   <div class="form-group">
 	    <label >Departure Time </label>	
 	  	   <input type="datetime-local" class="form-control" th:field="*{departureTime}" 
-		  th:classappend="${#fields.hasErrors('departureTime')}? 'is-invalid'">
-		   <div class="invalid-feedback" th:if="${#fields.hasErrors('departureTime')}" th:errors="*{departureTime}">departureTime Error</div>
+		  th:classappend="${#fields.hasErrors('departureTime')}? 'is-invalid'" required>
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('departureTime')}" th:errors="*{departureTime}">Please enter departure Time 'yyyy-mm-ddThh:mm'</div>
 	   </div>
 	   <div class="form-group">
 	     <label >Price </label>	
 		  <input type="text" class="form-control"  th:field="*{price}"  placeholder="Price"
-		  th:classappend="${#fields.hasErrors('price')}? 'is-invalid'">
-		   <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Departure Error</div>
+		  th:classappend="${#fields.hasErrors('price')}? 'is-invalid'" required>
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}">Price Error</div>
 	   </div>
 	     <div class="form-group">
 	     	     <label >Available seats </label>	
 		  <input type="text" class="form-control" th:field="*{seatsNumber}" placeholder="Seats"
-		  th:classappend="${#fields.hasErrors('price')}? 'is-invalid'">
-		   <div class="invalid-feedback" th:if="${#fields.hasErrors('seatsNumber')}" th:errors="*{seatsNumber}">Departure Error</div>
+		  th:classappend="${#fields.hasErrors('seatsNumber')}? 'is-invalid'" required>
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('seatsNumber')}">Seats Error</div>
 	   </div>
 	   <input  type="submit" class="btn btn-dark" value="Submit" ></input>
 	</form>

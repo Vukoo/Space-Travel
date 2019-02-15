@@ -1,6 +1,5 @@
 package com.space.flight.model;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,10 +17,12 @@ public class Flight {
 	private Long id;
 	@NotNull
 	@Column(name= "departure_time")
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime  departureTime;
 	
 	@NotNull
 	@Column(name= "arrival_time")
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime arrivalTime;
 	@Column(name= "seats_number")
 	@NotNull

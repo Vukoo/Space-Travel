@@ -71,7 +71,7 @@
 	   <div class="form-group " >
 	   <label >First Name* </label>
 		  <input type="text" class="form-control"  th:field="*{firstName}" placeholder="First Name" th:classappend="${#fields.hasErrors('firstName')}? 'is-invalid'">
-		  <div class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}" th:errors="*{lastName}">
+		  <div class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}" >
           First name Error
         </div>
 		     
@@ -80,11 +80,11 @@
 	   <div class="form-group" >
 	   	   <label >Last Name* </label>	
 	  	  <input type="text" class="form-control"  th:field="*{lastName}" placeholder="Last Name" 
-	  	  th:classappend="${#fields.hasErrors('lastName')}? 'is-invalid'" >
-	  	   <div class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</div>
+	  	  th:classappend="${#fields.hasErrors('lastName')}? 'is-invalid'" required>
+	  	   <div class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}">Name Error</div>
 	   </div>
 	   <div class="form-group">
-	   	   <label >Gender </label>
+	   	   <label >Gender* </label>
 	   	   <select th:field="*{sex}"  class="form-control">
  			 <option th:value="0">Male</option>
  			  <option th:value="1">Female</option>
@@ -93,14 +93,14 @@
 	     <div class="form-group">
 	     <label >Birthdate*</label>
 		  <input type="date" class="form-control" th:field="*{birthdate}" placeholder="Birthdate"  
-		  th:classappend="${#fields.hasErrors('birthdate')}? 'is-invalid'">
-		   <div class="invalid-feedback" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">Birthdate Error</div>
+		  th:classappend="${#fields.hasErrors('birthdate')}? 'is-invalid'" required>
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('birthdate')}">Birthdate Error</div>
 	   </div>
 	    <div class="form-group">
 	    <label >Country*</label>
 		  <input type="text" class="form-control" th:field="*{country}" placeholder="Country" 
-		  th:classappend="${#fields.hasErrors('country')}? 'is-invalid'">
-		   <div class="invalid-feedback" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Country Error</div>
+		  th:classappend="${#fields.hasErrors('country')}? 'is-invalid'" required>
+		   <div class="invalid-feedback" th:if="${#fields.hasErrors('country')}" >Country Error</div>
 	   </div>
 	   <div class="form-group">
 	   	    <label >Note</label>
