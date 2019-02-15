@@ -10,14 +10,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer{
 	@Override
 	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	   
+	  
 	       //
 	       // Access Bootstrap static resource:
 	       // http://somedomain/SomeContextPath/jquery/jquery.min.css
 	       //
 	       registry.addResourceHandler("/jquery/**") //
 	               .addResourceLocations("classpath:/META-INF/resources/webjars/jquery/3.3.1-1/");
-	 
 	       //
 	       // http://somedomain/SomeContextPath/popper/popper.min.js
 	       //
