@@ -70,7 +70,7 @@
       <form th:action="@{/tourist-management/tourist}" class="form-block" role="form" th:object="${tourist}" method="POST" aria-hidden="true">
 	   <div class="form-group " >
 	   <label >First Name* </label>
-		  <input type="text" class="form-control"  th:field="*{firstName}" placeholder="First Name" th:classappend="${#fields.hasErrors('firstName')}? 'is-invalid'">
+		  <input type="text" class="form-control"  th:field="*{firstName}" placeholder="First Name" th:classappend="${#fields.hasErrors('firstName')}? 'is-invalid'" required>
 		  <div class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}" >
           First name Error
         </div>

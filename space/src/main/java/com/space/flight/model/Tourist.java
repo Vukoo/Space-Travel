@@ -17,9 +17,11 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "tourist")
-public class Tourist {
+public @Data class Tourist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -38,72 +40,17 @@ public class Tourist {
 	
 	@ManyToMany(mappedBy = "tourists")
 	private Set<Flight> flight = new HashSet<>();
-	
-		//add flight to this flight
-		public void addFlight(Flight addFlight) {
-			flight.add(addFlight);
-			addFlight.getTourists().add(this);
-		}
-	
-
-		//remove flight from this flight
-		public void removeFlight(Flight addFflight) {
-		flight.remove(addFflight);
-		addFflight.getTourists().add(this);
-		}
-	
-	public Set<Flight> getFlight() {
-		return flight;
-	}
-	public void setFlight(Set<Flight> flight) {
-		this.flight = flight;
-	}
-
 
 	public Tourist() {
 	}
 	
-	
-	public Long getId() {
-		return id;
+	public void addFlight(Flight addFlight) {
+		flight.add(addFlight);
+		addFlight.getTourists().add(this);
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public boolean isSex() {
-		return sex;
-	}
-	public void setSex(boolean sex) {
-		this.sex = sex;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	public String getNote() {
-		return note;
-	}
-	public void setNote(String note) {
-		this.note = note;
-	}
-	public Date getBirthdate() {
-		return birthdate;
-	}
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
+
+	public void removeFlight(Flight addFflight) {
+	flight.remove(addFflight);
+	addFflight.getTourists().add(this);
 	}
 }
