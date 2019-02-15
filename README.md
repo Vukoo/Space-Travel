@@ -30,3 +30,6 @@ Data structure
 - Number of seats
 - List of tourists
 - Ticket price
+
+![alt text](https://i.ibb.co/qrT1xq2/Screenshot-2019-02-15-16-46-53.jpg)
+![alt text](https://i.ibb.co/51ZXXZq/Screenshot-2019-02-15-16-42-49.jpg)
