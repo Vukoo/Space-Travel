@@ -31,5 +31,20 @@ Data structure
 - List of tourists
 - Ticket price
 
+# Screenshots
 ![alt text](https://i.ibb.co/qrT1xq2/Screenshot-2019-02-15-16-46-53.jpg)
 ![alt text](https://i.ibb.co/51ZXXZq/Screenshot-2019-02-15-16-42-49.jpg)
+
+# Used technologies
+1. Spring Boot
+2. Hibernate
+3. MySQL
+4. Thymeleaf
+5. Bootstrap
+6. Maven
+7. Lombok
+
+# Architecture
+REST API
+
+REST API
